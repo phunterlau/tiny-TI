@@ -1,0 +1,759 @@
+{
+  "knowledge_graph": {
+    "IoCs": {
+      "file_hashes": [
+        "cda936ecae566ab871e5c0303d8ff98796b1e3661885afd9d4690fc1e945640e",
+        "7c85ff89b535a39d47756dfce4597c239ee16df88badefe8f76051b836a7cbfb",
+        "dad1a8869c950c2d1d322c8aed3757d3988ef4f06ba230b329c8d510d8d9a027",
+        "c6a91cba00bf87cdb064c49adaac82255cbec6fdd48fd21f9b3b96abf019916b",
+        "6b96b991e33240e5c2091d092079a440fa1bef9b5aecbf3039bf7c47223bdf96",
+        "a06d74322a8761ec8e6f28d134f2a89c7ba611d920d080a3ccbfac7c3b61e2e7"
+      ],
+      "file_names": [
+        "IMG-387470302099.jpg.exe",
+        "WindowsCodecs.dll",
+        "zqtxmo.bat"
+      ],
+      "url_ip": [
+        "https://webhook.site/66d5b9f9-a5eb-48e6-9476-9b6142b0c3ae",
+        "https://webhook.site/d290377c-82b5-4765-acb8-454edf6425dd",
+        "https://i.ibb.co/vVSCr2Z/car-for-sale.jpg"
+      ]
+    },
+    "security_events": {
+      "threat_actor": "Fighting Ursa",
+      "main_methods": [
+        "Phishing",
+        "Malware distribution"
+      ],
+      "kill_chain_steps": [
+        {
+          "step": "Delivery",
+          "related_IoCs": [
+            "cda936ecae566ab871e5c0303d8ff98796b1e3661885afd9d4690fc1e945640e",
+            "7c85ff89b535a39d47756dfce4597c239ee16df88badefe8f76051b836a7cbfb"
+          ]
+        },
+        {
+          "step": "Exploitation",
+          "related_IoCs": [
+            "dad1a8869c950c2d1d322c8aed3757d3988ef4f06ba230b329c8d510d8d9a027"
+          ]
+        },
+        {
+          "step": "Installation",
+          "related_IoCs": [
+            "c6a91cba00bf87cdb064c49adaac82255cbec6fdd48fd21f9b3b96abf019916b",
+            "6b96b991e33240e5c2091d092079a440fa1bef9b5aecbf3039bf7c47223bdf96"
+          ]
+        },
+        {
+          "step": "Command and Control",
+          "related_IoCs": [
+            "a06d74322a8761ec8e6f28d134f2a89c7ba611d920d080a3ccbfac7c3b61e2e7"
+          ]
+        }
+      ],
+      "file_name_hash_mapping": {
+        "IMG-387470302099.jpg.exe": "c6a91cba00bf87cdb064c49adaac82255cbec6fdd48fd21f9b3b96abf019916b",
+        "WindowsCodecs.dll": "6b96b991e33240e5c2091d092079a440fa1bef9b5aecbf3039bf7c47223bdf96",
+        "zqtxmo.bat": "a06d74322a8761ec8e6f28d134f2a89c7ba611d920d080a3ccbfac7c3b61e2e7"
+      },
+      "url_ip_payload_mapping": {
+        "https://webhook.site/66d5b9f9-a5eb-48e6-9476-9b6142b0c3ae": "cda936ecae566ab871e5c0303d8ff98796b1e3661885afd9d4690fc1e945640e",
+        "https://i.ibb.co/vVSCr2Z/car-for-sale.jpg": "7c85ff89b535a39d47756dfce4597c239ee16df88badefe8f76051b836a7cbfb"
+      },
+      "executable_files_calling_logic": {
+        "IMG-387470302099.jpg.exe": {
+          "executes": "WindowsCodecs.dll",
+          "step": "Installation"
+        },
+        "WindowsCodecs.dll": {
+          "executes": "zqtxmo.bat",
+          "step": "Installation"
+        }
+      },
+      "other_IoCs_interact": [
+        {
+          "file": "WindowsCodecs.dll",
+          "interacts_with": "zqtxmo.bat"
+        }
+      ]
+    },
+    "reference_links": [
+      "https://go.recordedfuture.com/hubfs/reports/CTA-RU-2024-0530.pdf",
+      "https://securityintelligence.com/x-force/itg05-ops-leverage-israel-hamas-conflict-lures-to-deliver-headlace-malware/",
+      "https://www.proofpoint.com/us/blog/threat-insight/ta422s-dedicated-exploitation-loop-same-week-after-week"
+    ],
+    "virustotal_results": [
+      {
+        "hash": "cda936ecae566ab871e5c0303d8ff98796b1e3661885afd9d4690fc1e945640e",
+        "detection_ratio": "28/79",
+        "first_submission_date": 1710430383,
+        "last_analysis_date": 1723102460,
+        "detections": [
+          {
+            "engine": "Bkav",
+            "result": "W32.Common.C43A5061"
+          },
+          {
+            "engine": "Lionic",
+            "result": "Trojan.HTML.Runner.4!c"
+          },
+          {
+            "engine": "MicroWorld-eScan",
+            "result": "Trojan.GenericKD.73782047"
+          },
+          {
+            "engine": "ALYac",
+            "result": "Trojan.Downloader.HTML.Agent"
+          },
+          {
+            "engine": "VIPRE",
+            "result": "Trojan.GenericKD.73782047"
+          },
+          {
+            "engine": "K7GW",
+            "result": "Trojan ( 0001140e1 )"
+          },
+          {
+            "engine": "K7AntiVirus",
+            "result": "Trojan ( 0001140e1 )"
+          },
+          {
+            "engine": "Symantec",
+            "result": "Trojan.Malscript"
+          },
+          {
+            "engine": "Avast",
+            "result": "Other:Malware-gen [Trj]"
+          },
+          {
+            "engine": "Kaspersky",
+            "result": "Trojan.Win64.Runner.s"
+          },
+          {
+            "engine": "BitDefender",
+            "result": "Trojan.GenericKD.73782047"
+          },
+          {
+            "engine": "Emsisoft",
+            "result": "Trojan.GenericKD.73782047 (B)"
+          },
+          {
+            "engine": "DrWeb",
+            "result": "Trojan.Starter.8257"
+          },
+          {
+            "engine": "FireEye",
+            "result": "Trojan.GenericKD.73782047"
+          },
+          {
+            "engine": "Sophos",
+            "result": "Troj/HTMLDrp-SP"
+          },
+          {
+            "engine": "Varist",
+            "result": "ABTrojan.HSIX-"
+          },
+          {
+            "engine": "Microsoft",
+            "result": "Trojan:Win32/Leonem"
+          },
+          {
+            "engine": "ViRobot",
+            "result": "HTML.S.Downloader.516691"
+          },
+          {
+            "engine": "ZoneAlarm",
+            "result": "Trojan.Win64.Runner.s"
+          },
+          {
+            "engine": "GData",
+            "result": "Trojan.GenericKD.73782047"
+          },
+          {
+            "engine": "Google",
+            "result": "Detected"
+          },
+          {
+            "engine": "AhnLab-V3",
+            "result": "Downloader/HTML.Generic.SC202619"
+          },
+          {
+            "engine": "MAX",
+            "result": "malware (ai score=83)"
+          },
+          {
+            "engine": "Rising",
+            "result": "Trojan.Obfuse!8.10126 (TOPIS:E0:5y2FZzKgK6P)"
+          },
+          {
+            "engine": "Ikarus",
+            "result": "Trojan.Win64.Runner"
+          },
+          {
+            "engine": "Fortinet",
+            "result": "W64/Runner.X!tr"
+          },
+          {
+            "engine": "AVG",
+            "result": "Other:Malware-gen [Trj]"
+          },
+          {
+            "engine": "alibabacloud",
+            "result": "Trojan:Win/Runner.s"
+          }
+        ],
+        "comments": []
+      },
+      {
+        "hash": "7c85ff89b535a39d47756dfce4597c239ee16df88badefe8f76051b836a7cbfb",
+        "detection_ratio": "0/79",
+        "first_submission_date": 1718926378,
+        "last_analysis_date": 1723102462,
+        "detections": [],
+        "comments": []
+      },
+      {
+        "hash": "dad1a8869c950c2d1d322c8aed3757d3988ef4f06ba230b329c8d510d8d9a027",
+        "detection_ratio": "48/79",
+        "first_submission_date": 1710430939,
+        "last_analysis_date": 1723102463,
+        "detections": [
+          {
+            "engine": "Lionic",
+            "result": "Trojan.ZIP.Runner.4!c"
+          },
+          {
+            "engine": "Elastic",
+            "result": "malicious (high confidence)"
+          },
+          {
+            "engine": "MicroWorld-eScan",
+            "result": "Gen:Variant.Mikey.164402"
+          },
+          {
+            "engine": "CAT-QuickHeal",
+            "result": "Script.Trojan.A12425732"
+          },
+          {
+            "engine": "Skyhigh",
+            "result": "Artemis!Trojan"
+          },
+          {
+            "engine": "McAfee",
+            "result": "Artemis!E3604D4FA956"
+          },
+          {
+            "engine": "Malwarebytes",
+            "result": "Trojan.Loader"
+          },
+          {
+            "engine": "Zillya",
+            "result": "Trojan.Runner.Win64.29"
+          },
+          {
+            "engine": "K7AntiVirus",
+            "result": "Trojan ( 005b33d81 )"
+          },
+          {
+            "engine": "Alibaba",
+            "result": "Trojan:Package/phishing.2"
+          },
+          {
+            "engine": "K7GW",
+            "result": "Trojan ( 005b33d81 )"
+          },
+          {
+            "engine": "Symantec",
+            "result": "Trojan.Gen.NPE"
+          },
+          {
+            "engine": "ESET-NOD32",
+            "result": "multiple detections"
+          },
+          {
+            "engine": "TrendMicro-HouseCall",
+            "result": "TROJ_GEN.R002C0XED24"
+          },
+          {
+            "engine": "Avast",
+            "result": "Win64:MalwareX-gen [Trj]"
+          },
+          {
+            "engine": "Kaspersky",
+            "result": "Trojan.Win64.Runner.s"
+          },
+          {
+            "engine": "BitDefender",
+            "result": "Gen:Variant.Mikey.164402"
+          },
+          {
+            "engine": "Rising",
+            "result": "Trojan.Runner!8.93 (CLOUD)"
+          },
+          {
+            "engine": "Emsisoft",
+            "result": "Gen:Variant.Mikey.164402 (B)"
+          },
+          {
+            "engine": "F-Secure",
+            "result": "Trojan.TR/Runner.tkcpj"
+          },
+          {
+            "engine": "DrWeb",
+            "result": "Trojan.Starter.8257"
+          },
+          {
+            "engine": "VIPRE",
+            "result": "Gen:Variant.Mikey.164402"
+          },
+          {
+            "engine": "TrendMicro",
+            "result": "HEUR_NAMETRICK.A"
+          },
+          {
+            "engine": "FireEye",
+            "result": "Gen:Variant.Mikey.164402"
+          },
+          {
+            "engine": "Sophos",
+            "result": "Mal/Generic-S"
+          },
+          {
+            "engine": "Ikarus",
+            "result": "Trojan.Win64.Runner"
+          },
+          {
+            "engine": "GData",
+            "result": "Trojan.GenericKD.73778455"
+          },
+          {
+            "engine": "Google",
+            "result": "Detected"
+          },
+          {
+            "engine": "Avira",
+            "result": "TR/Runner.tkcpj"
+          },
+          {
+            "engine": "Varist",
+            "result": "W64/ABRisk.DSYT-2602"
+          },
+          {
+            "engine": "Antiy-AVL",
+            "result": "Trojan/Win64.Runner"
+          },
+          {
+            "engine": "Kingsoft",
+            "result": "Win32.Troj.Undef.a"
+          },
+          {
+            "engine": "Microsoft",
+            "result": "Trojan:Win32/Casdet!rfn"
+          },
+          {
+            "engine": "Gridinsoft",
+            "result": "Trojan.Win64.Runner.oa!s1"
+          },
+          {
+            "engine": "Xcitium",
+            "result": "Heur.Dual.Extensions@1z141z3"
+          },
+          {
+            "engine": "Arcabit",
+            "result": "Trojan.Mikey.D28232"
+          },
+          {
+            "engine": "ViRobot",
+            "result": "BAT.S.Runner.722"
+          },
+          {
+            "engine": "ZoneAlarm",
+            "result": "Trojan.Win64.Runner.s"
+          },
+          {
+            "engine": "Cynet",
+            "result": "Malicious (score: 99)"
+          },
+          {
+            "engine": "AhnLab-V3",
+            "result": "Trojan/Win.Generic.C5602094"
+          },
+          {
+            "engine": "ALYac",
+            "result": "Trojan.Downloader.BAT.A"
+          },
+          {
+            "engine": "MAX",
+            "result": "malware (ai score=88)"
+          },
+          {
+            "engine": "Tencent",
+            "result": "Malware.Win32.Gencirc.11c02efb"
+          },
+          {
+            "engine": "MaxSecure",
+            "result": "Trojan.Malware.237384606.susgen"
+          },
+          {
+            "engine": "Fortinet",
+            "result": "W64/Runner.X!tr"
+          },
+          {
+            "engine": "AVG",
+            "result": "Win64:MalwareX-gen [Trj]"
+          },
+          {
+            "engine": "Panda",
+            "result": "Trj/Chgt.AD"
+          },
+          {
+            "engine": "alibabacloud",
+            "result": "Trojan:Win/Runner.X"
+          }
+        ],
+        "comments": []
+      },
+      {
+        "hash": "c6a91cba00bf87cdb064c49adaac82255cbec6fdd48fd21f9b3b96abf019916b",
+        "detection_ratio": "0/79",
+        "first_submission_date": 1252023835,
+        "last_analysis_date": 1723122937,
+        "detections": [],
+        "comments": []
+      },
+      {
+        "hash": "6b96b991e33240e5c2091d092079a440fa1bef9b5aecbf3039bf7c47223bdf96",
+        "detection_ratio": "51/79",
+        "first_submission_date": 1710430940,
+        "last_analysis_date": 1723102464,
+        "detections": [
+          {
+            "engine": "Bkav",
+            "result": "W64.AIDetectMalware"
+          },
+          {
+            "engine": "Lionic",
+            "result": "Trojan.Win32.Runner.4!c"
+          },
+          {
+            "engine": "Elastic",
+            "result": "malicious (high confidence)"
+          },
+          {
+            "engine": "MicroWorld-eScan",
+            "result": "Gen:Variant.Mikey.164402"
+          },
+          {
+            "engine": "Skyhigh",
+            "result": "BehavesLike.Win64.Infected.zt"
+          },
+          {
+            "engine": "ALYac",
+            "result": "Trojan.MSIL.Runner"
+          },
+          {
+            "engine": "Cylance",
+            "result": "Unsafe"
+          },
+          {
+            "engine": "Zillya",
+            "result": "Trojan.Runner.Win64.29"
+          },
+          {
+            "engine": "Sangfor",
+            "result": "Trojan.Win64.Runner.Vw6u"
+          },
+          {
+            "engine": "K7AntiVirus",
+            "result": "Trojan ( 005b33d81 )"
+          },
+          {
+            "engine": "Alibaba",
+            "result": "Trojan:Win64/Runner.da7655df"
+          },
+          {
+            "engine": "K7GW",
+            "result": "Trojan ( 005b33d81 )"
+          },
+          {
+            "engine": "Arcabit",
+            "result": "Trojan.Mikey.D28232"
+          },
+          {
+            "engine": "Symantec",
+            "result": "W32.Ramnit.B"
+          },
+          {
+            "engine": "ESET-NOD32",
+            "result": "Win64/Runner.X"
+          },
+          {
+            "engine": "TrendMicro-HouseCall",
+            "result": "TROJ_GEN.R002C0XED24"
+          },
+          {
+            "engine": "Paloalto",
+            "result": "generic.ml"
+          },
+          {
+            "engine": "Kaspersky",
+            "result": "Trojan.Win64.Runner.s"
+          },
+          {
+            "engine": "BitDefender",
+            "result": "Gen:Variant.Mikey.164402"
+          },
+          {
+            "engine": "Avast",
+            "result": "Win64:MalwareX-gen [Trj]"
+          },
+          {
+            "engine": "Rising",
+            "result": "Trojan.Runner!8.93 (CLOUD)"
+          },
+          {
+            "engine": "Emsisoft",
+            "result": "Gen:Variant.Mikey.164402 (B)"
+          },
+          {
+            "engine": "F-Secure",
+            "result": "Trojan.TR/Runner.tkcpj"
+          },
+          {
+            "engine": "DrWeb",
+            "result": "Trojan.Starter.8257"
+          },
+          {
+            "engine": "VIPRE",
+            "result": "Gen:Variant.Mikey.164402"
+          },
+          {
+            "engine": "TrendMicro",
+            "result": "TROJ_GEN.R002C0XED24"
+          },
+          {
+            "engine": "McAfeeD",
+            "result": "ti!6B96B991E332"
+          },
+          {
+            "engine": "FireEye",
+            "result": "Gen:Variant.Mikey.164402"
+          },
+          {
+            "engine": "Sophos",
+            "result": "Mal/Generic-S"
+          },
+          {
+            "engine": "Ikarus",
+            "result": "Trojan.Win64.Runner"
+          },
+          {
+            "engine": "Google",
+            "result": "Detected"
+          },
+          {
+            "engine": "Avira",
+            "result": "TR/Runner.tkcpj"
+          },
+          {
+            "engine": "Varist",
+            "result": "W64/ABRisk.DSYT-2602"
+          },
+          {
+            "engine": "Antiy-AVL",
+            "result": "Trojan/Win64.Runner"
+          },
+          {
+            "engine": "Kingsoft",
+            "result": "Win32.Troj.Undef.a"
+          },
+          {
+            "engine": "Gridinsoft",
+            "result": "Trojan.Win64.Runner.oa!s1"
+          },
+          {
+            "engine": "Microsoft",
+            "result": "Trojan:Win32/Casdet!rfn"
+          },
+          {
+            "engine": "ZoneAlarm",
+            "result": "Trojan.Win64.Runner.s"
+          },
+          {
+            "engine": "GData",
+            "result": "Gen:Variant.Mikey.164402"
+          },
+          {
+            "engine": "Cynet",
+            "result": "Malicious (score: 100)"
+          },
+          {
+            "engine": "AhnLab-V3",
+            "result": "Trojan/Win.Generic.C5602094"
+          },
+          {
+            "engine": "McAfee",
+            "result": "Artemis!E3604D4FA956"
+          },
+          {
+            "engine": "MAX",
+            "result": "malware (ai score=89)"
+          },
+          {
+            "engine": "Malwarebytes",
+            "result": "Trojan.Loader"
+          },
+          {
+            "engine": "Panda",
+            "result": "Trj/Chgt.AD"
+          },
+          {
+            "engine": "Tencent",
+            "result": "Malware.Win32.Gencirc.11c02efb"
+          },
+          {
+            "engine": "MaxSecure",
+            "result": "Trojan.Malware.237384606.susgen"
+          },
+          {
+            "engine": "Fortinet",
+            "result": "W64/Runner.X!tr"
+          },
+          {
+            "engine": "AVG",
+            "result": "Win64:MalwareX-gen [Trj]"
+          },
+          {
+            "engine": "DeepInstinct",
+            "result": "MALICIOUS"
+          },
+          {
+            "engine": "alibabacloud",
+            "result": "Trojan:Win/Runner.X"
+          }
+        ],
+        "comments": []
+      },
+      {
+        "hash": "a06d74322a8761ec8e6f28d134f2a89c7ba611d920d080a3ccbfac7c3b61e2e7",
+        "detection_ratio": "27/79",
+        "first_submission_date": 1710430940,
+        "last_analysis_date": 1723102465,
+        "detections": [
+          {
+            "engine": "Lionic",
+            "result": "Trojan.Script.Obfuse.a!c"
+          },
+          {
+            "engine": "MicroWorld-eScan",
+            "result": "Trojan.GenericKD.73778455"
+          },
+          {
+            "engine": "CAT-QuickHeal",
+            "result": "Script.Trojan.A12425732"
+          },
+          {
+            "engine": "ALYac",
+            "result": "Trojan.Downloader.BAT.A"
+          },
+          {
+            "engine": "K7AntiVirus",
+            "result": "Trojan ( 0001140e1 )"
+          },
+          {
+            "engine": "K7GW",
+            "result": "Trojan ( 0001140e1 )"
+          },
+          {
+            "engine": "Symantec",
+            "result": "Trojan.Gen.NPE"
+          },
+          {
+            "engine": "ESET-NOD32",
+            "result": "BAT/TrojanDownloader.Agent.PHN"
+          },
+          {
+            "engine": "Avast",
+            "result": "Other:Malware-gen [Trj]"
+          },
+          {
+            "engine": "Kaspersky",
+            "result": "HEUR:Trojan-Downloader.BAT.Agent.gen"
+          },
+          {
+            "engine": "BitDefender",
+            "result": "Trojan.GenericKD.73778455"
+          },
+          {
+            "engine": "Emsisoft",
+            "result": "Trojan.GenericKD.73778455 (B)"
+          },
+          {
+            "engine": "DrWeb",
+            "result": "BAT.Starter.467"
+          },
+          {
+            "engine": "VIPRE",
+            "result": "Trojan.GenericKD.73778455"
+          },
+          {
+            "engine": "FireEye",
+            "result": "Trojan.GenericKD.73778455"
+          },
+          {
+            "engine": "Sophos",
+            "result": "Troj/BATDl-MW"
+          },
+          {
+            "engine": "Varist",
+            "result": "ABTrojan.OJTC-"
+          },
+          {
+            "engine": "Microsoft",
+            "result": "Trojan:Script/Obfuse.HNAB!MTB"
+          },
+          {
+            "engine": "ViRobot",
+            "result": "BAT.S.Runner.722"
+          },
+          {
+            "engine": "ZoneAlarm",
+            "result": "HEUR:Trojan-Downloader.BAT.Agent.gen"
+          },
+          {
+            "engine": "GData",
+            "result": "Trojan.GenericKD.73778455"
+          },
+          {
+            "engine": "AhnLab-V3",
+            "result": "Downloader/BAT.Generic.SC202618"
+          },
+          {
+            "engine": "Google",
+            "result": "Detected"
+          },
+          {
+            "engine": "MAX",
+            "result": "malware (ai score=84)"
+          },
+          {
+            "engine": "Ikarus",
+            "result": "Trojan.Script.Obfuse"
+          },
+          {
+            "engine": "AVG",
+            "result": "Other:Malware-gen [Trj]"
+          },
+          {
+            "engine": "alibabacloud",
+            "result": "Trojan[downloader]:Win/Obfuse.HTZJ3DGW"
+          }
+        ],
+        "comments": []
+      }
+    ]
+  }
+}
