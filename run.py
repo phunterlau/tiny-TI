@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 from ti_parser import main as parse_blog
 from virustotal_lookup import process_hashes_from_json
 from vis import generate_d3_visualization
+from summarize_threat_intel import generate_summary_and_questions
 
 def sanitize_filename(url):
     parsed_url = urlparse(url)
@@ -16,6 +17,7 @@ def run_workflow(url, use_cache=False):
     initial_json_filename = f"{base_filename}_initial.json"
     vt_json_filename = f"{base_filename}_with_vt.json"
     html_filename = f"{base_filename}_visualization.html"
+    summary_filename = f"{base_filename}_summary.md"
 
     # Check if cache should be used
     if use_cache and os.path.exists(vt_json_filename):
@@ -33,13 +35,18 @@ def run_workflow(url, use_cache=False):
     generate_d3_visualization(vt_json_filename, html_filename)
     print(f"Visualization generated and saved to {html_filename}")
 
+    # Step 4: Generate summary and questions
+    generate_summary_and_questions(vt_json_filename, summary_filename)
+    print(f"Summary and questions generated and saved to {summary_filename}")
+
     print(f"\nWorkflow completed. Output files:")
     print(f"  Initial JSON: {initial_json_filename}")
     print(f"  JSON with VirusTotal data: {vt_json_filename}")
     print(f"  HTML Visualization: {html_filename}")
+    print(f"  Summary and Questions: {summary_filename}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Process a security blog URL and generate threat intelligence visualizations.")
+    parser = argparse.ArgumentParser(description="Process a security blog URL and generate threat intelligence visualizations and summaries.")
     parser.add_argument("url", help="The URL of the security blog to process")
     parser.add_argument("--use-cache", action="store_true", help="Use cached data if available")
     args = parser.parse_args()
