@@ -1,7 +1,7 @@
 # tiny-TI
 A tiny OSINT threat intelligence demo with LLM, so OSINT is no longer useless.
 
-It loads a security research blog post or a report URL, builds a knowledge graph of IoCs, behavior patterns, and the event overview in kill chain steps, with JSON output and a knowledge graph visualization in d3.js. It also validates IoCs with external vendors like VirusTotal.
+It loads a security research blog post or a report URL, builds a knowledge graph of IoCs, behavior patterns, and the event overview in kill chain steps, with JSON output and a knowledge graph visualization in d3.js, plus a researcher summary with further investigation suggestions. It also validates IoCs with external vendors like VirusTotal.
 
 It is just a start for many future possibilities. For example, it is possible for a NLP TI engine to answer "who else had similar behavior to Fancy Bear attack".
 
